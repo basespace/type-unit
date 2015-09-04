@@ -7,9 +7,6 @@ import suite = require("./decorators/suite");
 import fact = require("./decorators/fact");
 import theory = require("./decorators/theory");
 
-console.log("Type unit!");
-
-
 export = {
 	Suite : suite,
 	Fact : fact,

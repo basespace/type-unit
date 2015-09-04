@@ -16,6 +16,6 @@ class MathTests {
 	
 	@Fact("Subtraction -- should fail")
 	subtraction() {
-		assert.equal(0, 1 / 0, "One divided by zero is not a number");
+		assert.equal(1 - 1, 2, "One minus one does not equal two");
 	}
 }

@@ -1,4 +1,5 @@
 /// @Theory decorator
+require("reflect-metadata");
 module.exports = function (description, parameters) {
     return function (target, propertyKey, descriptor) {
         var tests = Reflect.getMetadata("typeunit.tests", target.constructor);

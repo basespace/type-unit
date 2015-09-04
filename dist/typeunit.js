@@ -5,7 +5,6 @@
 var suite = require("./decorators/suite");
 var fact = require("./decorators/fact");
 var theory = require("./decorators/theory");
-console.log("Type unit!");
 module.exports = {
     Suite: suite,
     Fact: fact,

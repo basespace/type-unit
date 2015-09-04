@@ -20,7 +20,7 @@ var MathTests = (function () {
         assert.equal(1 + 1, 2, "One plus one equals two");
     };
     MathTests.prototype.subtraction = function () {
-        assert.equal(0, 1 / 0, "One divided by zero is not a number");
+        assert.equal(1 - 1, 2, "One minus one does not equal two");
     };
     Object.defineProperty(MathTests.prototype, "addition",
         __decorate([
