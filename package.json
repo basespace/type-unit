@@ -1,6 +1,6 @@
 {
   "name": "type-unit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript testing framework. Inspired by XUnit.",
   "main": "dist/index.js",
   "scripts": {
