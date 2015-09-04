@@ -9,7 +9,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var typeunit = require("../../dist/typeunit");
+var typeunit = require("../../dist/index");
 var assert = require("assert");
 var Suite = typeunit.Suite, Fact = typeunit.Fact, Theory = typeunit.Theory;
 require("mocha");

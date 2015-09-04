@@ -14,7 +14,7 @@
     "experimentalDecorators": true
   },
   "files" : [
-    "src/typeunit.ts",
+    "src/index.ts",
     "src/decorators/fact.ts",
     "src/decorators/theory.ts",
     "src/decorators/suite.ts"

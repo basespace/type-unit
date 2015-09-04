@@ -10,4 +10,4 @@ module.exports = {
     Fact: fact,
     Theory: theory
 };
-//# sourceMappingURL=typeunit.js.map
+//# sourceMappingURL=index.js.map

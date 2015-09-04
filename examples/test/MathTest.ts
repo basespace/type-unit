@@ -1,4 +1,4 @@
-import typeunit = require("../../dist/typeunit");
+import typeunit = require("../../dist/index");
 import assert = require("assert");
 
 var Suite = typeunit.Suite,
