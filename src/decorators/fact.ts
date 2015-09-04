@@ -1,6 +1,8 @@
 // @Fact decorator
 
-exports = (description: string, id?: string) => {
+require("reflect-metadata");
+
+export = (description: string, id?: string) => {
     return function (target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
         var tests = Reflect.getMetadata("typeunit.tests", target.constructor);
 
@@ -17,4 +19,4 @@ exports = (description: string, id?: string) => {
 
         Reflect.defineMetadata("typeunit.tests", tests, target.constructor);
     }
-};;
+};

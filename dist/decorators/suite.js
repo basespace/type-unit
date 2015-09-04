@@ -1,5 +1,5 @@
 // @Suite decorator
-exports = function (description) {
+module.exports = function (description) {
     return function (target) {
         var testsToRun = Reflect.getMetadata("typeunit.tests", target);
         describe(description, function () {

@@ -1,6 +1,8 @@
 /// @Theory decorator
 
-exports = (description: string, parameters: any[][]) => {
+require("reflect-metadata");
+
+export = (description: string, parameters: any[][]) => {
     return function (target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
         var tests = Reflect.getMetadata("typeunit.tests", target.constructor);
 

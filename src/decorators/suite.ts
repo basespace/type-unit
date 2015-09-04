@@ -1,6 +1,8 @@
 // @Suite decorator
 
-exports = (description: string) => {
+require("reflect-metadata");
+
+export = (description: string) => {
     return function (target: any) {
         var testsToRun: models.ITest[] = Reflect.getMetadata("typeunit.tests", target);
 

@@ -1,5 +1,5 @@
 /// @Theory decorator
-exports = function (description, parameters) {
+module.exports = function (description, parameters) {
     return function (target, propertyKey, descriptor) {
         var tests = Reflect.getMetadata("typeunit.tests", target.constructor);
         var newTest = {
