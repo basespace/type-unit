@@ -1,0 +1,22 @@
+{
+  "version": "1.5.3",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "listFiles": true,
+    "outDir": "dist",
+    "experimentalDecorators": true
+  },
+  "files" : [
+    "src/typeunit.ts",
+    "src/decorators/fact.ts",
+    "src/decorators/theory.ts",
+    "src/decorators/suite.ts"
+  ]
+}

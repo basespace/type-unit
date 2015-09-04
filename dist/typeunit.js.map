@@ -1,0 +1,1 @@
+{"version":3,"file":"typeunit.js","sourceRoot":"","sources":["../src/typeunit.ts"],"names":[],"mappings":"AAAA,kDAAkD;AAClD,oDAAoD;AACpD,wCAAwC;AACxC,+EAA+E;AAE/E,OAAO,GAAG;IACT,KAAK,EAAG,OAAO,CAAC,kBAAkB,CAAC;IACnC,IAAI,EAAG,OAAO,CAAC,iBAAiB,CAAC;IACjC,MAAM,EAAG,OAAO,CAAC,mBAAmB,CAAC;CACrC,CAAC"}

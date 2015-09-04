@@ -1,0 +1,35 @@
+{
+  "name": "type-unit",
+  "version": "0.1.0",
+  "description": "TypeScript testing framework. Inspired by XUnit.",
+  "main": "dist/typeunit.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/basespace/type-unit.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "JavaScript",
+    "unit",
+    "testing",
+    "framework",
+    "mocha",
+    "XUnit"
+  ],
+  "author": "Andrew Roberts <aroberts@illumina.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/basespace/type-unit/issues"
+  },
+  "homepage": "https://github.com/basespace/type-unit",
+  "dependencies": {
+    "mocha": "^2.3.0",
+    "reflect-metadata": "^0.1.1",
+    "tsc": "^1.20150623.0",
+    "tsd": "^0.6.4",
+    "typescript": "^1.6.0-beta"
+  }
+}
