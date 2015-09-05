@@ -39,7 +39,7 @@ class MathTests {
 
 ### Testing framework
 
-TypeUnit uses mocha. The decorators correspond to mocha functions:
+TypeUnit is powered by <a href="https://github.com/mochajs/mocha">mocha</a>. The decorators correspond to mocha functions:
 
 * `@Suite()` => `describe()`
 * `@Fact()` => `it()`
@@ -47,8 +47,10 @@ TypeUnit uses mocha. The decorators correspond to mocha functions:
 
 ### To do
 
-* Decorators that correspond to mocha's `beforeEach()` and `afterEach()` and to xUnit Fixtures.
-* Support for alternative underyling test frameworks like **jasmine-node**.
+The following features are on the roadmap
+
+* Support for decorators that correspond to mocha's `beforeEach()` and `afterEach()` and to xUnit Fixtures.
+* Support for alternative test frameworks like **jasmine-node** or **vows**.
  
 ### Contributing
 
