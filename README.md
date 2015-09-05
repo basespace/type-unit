@@ -6,7 +6,7 @@
 
 * Install TypeUnit: `npm install type-unit`.
 * Configure your TypeScript project to allow decorators. As of TypeScript 1.5.*, you must set the `experimentalDecorators` compiler option to `true`.
-* A class comprises a "@Suite" of tests, and an individual test function is a `@Fact`. A test that should be run with a series of different parameters are `@Theory`. 
+* A class comprises a `@Suite` of tests, and an individual test function is a `@Fact`. A test to run with a series of different parameters is a `@Theory`. 
 * Execute your tests by running `mocha`.
 
 #### Examples
@@ -52,4 +52,4 @@ TypeUnit uses mocha. The decorators correspond to mocha functions:
  
 ### Contributing
 
-* Contributions welcome. New features should be tested by adding unit tests file (`tests` folder). These tests can be run by running `mocha` from the root TypeUnit directory or via `npm run test`.
+* Contributions welcome. New features should be tested by adding unit tests file (`tests` folder). Tests can be executed by running `mocha` from the root TypeUnit directory, or `npm run test`.
