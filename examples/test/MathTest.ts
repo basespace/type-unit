@@ -18,4 +18,20 @@ class MathTests {
 	subtraction() {
 		assert.equal(1 - 1, 2, "One minus one does not equal two");
 	}
+	
+	@Fact("Async Fact -- should pass", true)
+	asyncFactSuccess(done) {
+		setTimeout(() => {
+			assert.ok(true);
+			done();
+		}, 250);
+	}
+	
+	@Fact("Async Fact -- should fail", true)
+	asyncFactFail(done) {
+		setTimeout(() => {
+			assert.ok(false);
+			done();
+		}, 250);
+	}
 }

@@ -1,12 +1,14 @@
 /// @Theory decorator
 require("reflect-metadata");
-module.exports = function (description, parameters) {
+module.exports = function (description, parameters, isAsync) {
+    if (isAsync === void 0) { isAsync = false; }
     return function (target, propertyKey, descriptor) {
         var tests = Reflect.getMetadata("typeunit.tests", target.constructor);
         var newTest = {
             methodName: propertyKey,
             description: description,
-            parameters: parameters
+            parameters: parameters,
+            isAsync: isAsync
         };
         if (tests) {
             tests.push(newTest);

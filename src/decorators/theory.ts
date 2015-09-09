@@ -2,14 +2,15 @@
 
 require("reflect-metadata");
 
-export = (description: string, parameters: any[][]) => {
+export = (description: string, parameters: any[][], isAsync: boolean = false) => {
     return function (target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
         var tests = Reflect.getMetadata("typeunit.tests", target.constructor);
 
         var newTest: models.ITest = {
             methodName: propertyKey,
             description: description,
-            parameters: parameters
+            parameters: parameters,
+            isAsync: isAsync
         };
 
         if (tests) {

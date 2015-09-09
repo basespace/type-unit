@@ -22,6 +22,18 @@ var MathTests = (function () {
     MathTests.prototype.subtraction = function () {
         assert.equal(1 - 1, 2, "One minus one does not equal two");
     };
+    MathTests.prototype.asyncFactSuccess = function (done) {
+        setTimeout(function () {
+            assert.ok(true);
+            done();
+        }, 250);
+    };
+    MathTests.prototype.asyncFactFail = function (done) {
+        setTimeout(function () {
+            assert.ok(false);
+            done();
+        }, 250);
+    };
     Object.defineProperty(MathTests.prototype, "addition",
         __decorate([
             Fact("Addition -- should pass"), 
@@ -36,6 +48,20 @@ var MathTests = (function () {
             __metadata('design:paramtypes', []), 
             __metadata('design:returntype', Object)
         ], MathTests.prototype, "subtraction", Object.getOwnPropertyDescriptor(MathTests.prototype, "subtraction")));
+    Object.defineProperty(MathTests.prototype, "asyncFactSuccess",
+        __decorate([
+            Fact("Async Fact -- should pass", true), 
+            __metadata('design:type', Function), 
+            __metadata('design:paramtypes', [Object]), 
+            __metadata('design:returntype', Object)
+        ], MathTests.prototype, "asyncFactSuccess", Object.getOwnPropertyDescriptor(MathTests.prototype, "asyncFactSuccess")));
+    Object.defineProperty(MathTests.prototype, "asyncFactFail",
+        __decorate([
+            Fact("Async Fact -- should fail", true), 
+            __metadata('design:type', Function), 
+            __metadata('design:paramtypes', [Object]), 
+            __metadata('design:returntype', Object)
+        ], MathTests.prototype, "asyncFactFail", Object.getOwnPropertyDescriptor(MathTests.prototype, "asyncFactFail")));
     MathTests = __decorate([
         Suite("Math tests"), 
         __metadata('design:paramtypes', [])
