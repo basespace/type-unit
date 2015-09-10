@@ -2,6 +2,7 @@
 /// <reference path="../typings/mocha/mocha.d.ts" />
 /// <reference path="models/ITest.ts" />
 /// <reference path="../node_modules/reflect-metadata/reflect-metadata.d.ts" />
+/// <reference path="../typings/bluebird/bluebird.d.ts" />
 var suite = require("./decorators/suite");
 var fact = require("./decorators/fact");
 var theory = require("./decorators/theory");

@@ -1,36 +1,59 @@
 // @Suite decorator
 require("reflect-metadata");
+function isTestFunctionAsync(fn, parameters) {
+    var fnString = fn.toString();
+    var paramsPassed = Array.isArray(parameters) ? parameters.length : 0;
+    var paramsInSignature = getNumParams(fnString);
+    if (paramsInSignature > paramsPassed) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+function getNumParams(fnString) {
+    var regex = /^function(\s?)\((.+)\)(\s?)\{/i;
+    var result = regex.exec(fnString);
+    if (result) {
+        var params = result[2];
+        if (params) {
+            return params.split(",").length;
+        }
+    }
+    return 0;
+}
 module.exports = function (description) {
     return function (target) {
         var testsToRun = Reflect.getMetadata("typeunit.tests", target);
         var suite = new target();
         describe(description, function () {
             testsToRun.forEach(function (test) {
+                var isAsync = isTestFunctionAsync(suite[test.methodName], test.parameters);
                 if (Array.isArray(test.parameters)) {
                     var i = 0;
                     test.parameters.forEach(function (params) {
-                        if (test.isAsync) {
+                        if (isAsync) {
                             it(i + ": " + test.description + params.toString(), function (done) {
-                                suite[test.methodName].apply(suite, params.concat(done));
+                                return suite[test.methodName].apply(suite, params.concat(done));
                             });
                         }
                         else {
                             it(i + ": " + test.description + params.toString(), function () {
-                                suite[test.methodName].apply(suite, params);
+                                return suite[test.methodName].apply(suite, params);
                             });
                         }
                         i++;
                     });
                 }
                 else {
-                    if (test.isAsync) {
+                    if (isAsync) {
                         it(test.description, function (done) {
-                            suite[test.methodName](done);
+                            return suite[test.methodName](done);
                         });
                     }
                     else {
                         it(test.description, function () {
-                            suite[test.methodName]();
+                            return suite[test.methodName]();
                         });
                     }
                 }

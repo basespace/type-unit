@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var typeunit = require("../../dist/index");
+var Promise = require("bluebird");
 var assert = require("assert");
 var Suite = typeunit.Suite, Fact = typeunit.Fact, Theory = typeunit.Theory;
 require("mocha");
@@ -27,6 +28,29 @@ var MathTests = (function () {
             assert.ok(true);
             done();
         }, 250);
+    };
+    MathTests.prototype.promiseFactSuccess = function () {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve(true);
+            }, 1);
+        }).then(function () {
+            assert.ok(true);
+        }, function () {
+            assert.ok(false);
+        });
+    };
+    MathTests.prototype.promiseFactFail = function () {
+        var p = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(true);
+            }, 1);
+        }).then(function () {
+            assert.ok(true);
+        }, function () {
+            assert.ok(false);
+        });
+        return p;
     };
     MathTests.prototype.asyncFactFail = function (done) {
         setTimeout(function () {
@@ -50,14 +74,28 @@ var MathTests = (function () {
         ], MathTests.prototype, "subtraction", Object.getOwnPropertyDescriptor(MathTests.prototype, "subtraction")));
     Object.defineProperty(MathTests.prototype, "asyncFactSuccess",
         __decorate([
-            Fact("Async Fact -- should pass", true), 
+            Fact("Async Fact -- should pass"), 
             __metadata('design:type', Function), 
             __metadata('design:paramtypes', [Object]), 
             __metadata('design:returntype', Object)
         ], MathTests.prototype, "asyncFactSuccess", Object.getOwnPropertyDescriptor(MathTests.prototype, "asyncFactSuccess")));
+    Object.defineProperty(MathTests.prototype, "promiseFactSuccess",
+        __decorate([
+            Fact("Promise Fact -- should pass"), 
+            __metadata('design:type', Function), 
+            __metadata('design:paramtypes', []), 
+            __metadata('design:returntype', Object)
+        ], MathTests.prototype, "promiseFactSuccess", Object.getOwnPropertyDescriptor(MathTests.prototype, "promiseFactSuccess")));
+    Object.defineProperty(MathTests.prototype, "promiseFactFail",
+        __decorate([
+            Fact("Promise Fact -- should fail"), 
+            __metadata('design:type', Function), 
+            __metadata('design:paramtypes', []), 
+            __metadata('design:returntype', Object)
+        ], MathTests.prototype, "promiseFactFail", Object.getOwnPropertyDescriptor(MathTests.prototype, "promiseFactFail")));
     Object.defineProperty(MathTests.prototype, "asyncFactFail",
         __decorate([
-            Fact("Async Fact -- should fail", true), 
+            Fact("Async Fact -- should fail"), 
             __metadata('design:type', Function), 
             __metadata('design:paramtypes', [Object]), 
             __metadata('design:returntype', Object)

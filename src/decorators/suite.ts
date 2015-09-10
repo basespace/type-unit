@@ -2,6 +2,37 @@
 
 require("reflect-metadata");
 
+function isTestFunctionAsync(fn: Function, parameters: any[]) {
+    var fnString = fn.toString();
+    
+    var paramsPassed = Array.isArray(parameters) ? parameters.length : 0;
+    
+    var paramsInSignature = getNumParams(fnString);
+    
+    if (paramsInSignature > paramsPassed) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getNumParams(fnString: string): number {
+    var regex = /^function(\s?)\((.+)\)(\s?)\{/i;
+    
+    var result = regex.exec(fnString);
+    
+    if (result) {
+        var params = result[2];
+        
+        if (params) {
+           return params.split(",").length;    
+        }
+    }
+    
+    return 0;
+}
+
+
 export = (description: string) => {
     return function (target: any) {
         var testsToRun: models.ITest[] = Reflect.getMetadata("typeunit.tests", target);
@@ -10,28 +41,29 @@ export = (description: string) => {
 
         describe(description, function () {
             testsToRun.forEach(function (test: models.ITest) {
+                var isAsync = isTestFunctionAsync(suite[test.methodName], test.parameters);
                 if (Array.isArray(test.parameters)) {
                     var i = 0;
                     test.parameters.forEach(function (params: any[]) {
-                        if (test.isAsync) {
+                        if (isAsync) {
                             it(i + ": " + test.description + params.toString(), function (done) {
-                                suite[test.methodName].apply(suite, params.concat(done));
+                                return suite[test.methodName].apply(suite, params.concat(done));
                             });
                         } else {
                             it(i + ": " + test.description + params.toString(), function () {
-                                suite[test.methodName].apply(suite, params);
+                                return suite[test.methodName].apply(suite, params);
                             });
                         }
                         i++;
                     });
                 } else {
-                    if (test.isAsync) {
+                    if (isAsync) {
                         it(test.description, function (done) {
-                            suite[test.methodName](done);
+                            return suite[test.methodName](done);
                         });
                     } else {
                         it(test.description, function () {
-                            suite[test.methodName]();
+                            return suite[test.methodName]();
                         });
                     }
                 }

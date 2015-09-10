@@ -1,4 +1,5 @@
 import typeunit = require("../../dist/index");
+import Promise = require("bluebird");
 import assert = require("assert");
 
 var Suite = typeunit.Suite,
@@ -19,7 +20,7 @@ class MathTests {
 		assert.equal(1 - 1, 2, "One minus one does not equal two");
 	}
 	
-	@Fact("Async Fact -- should pass", true)
+	@Fact("Async Fact -- should pass")
 	asyncFactSuccess(done) {
 		setTimeout(() => {
 			assert.ok(true);
@@ -27,7 +28,37 @@ class MathTests {
 		}, 250);
 	}
 	
-	@Fact("Async Fact -- should fail", true)
+	@Fact("Promise Fact -- should pass")
+	promiseFactSuccess() {
+		return new Promise<boolean>((resolve, reject) => {
+			setTimeout(() => {
+				resolve(true);
+			}, 1);
+		}).then(() => {
+			assert.ok(true);
+		},
+		() => {
+			assert.ok(false);
+		});
+	}
+	
+	@Fact("Promise Fact -- should fail")
+	promiseFactFail() {
+		var p = new Promise<boolean>((resolve, reject) => {
+			setTimeout(() => {
+				reject(true);
+			}, 1);
+		}).then(() => {
+			assert.ok(true);
+		},
+		() => {
+			assert.ok(false);
+		});
+		
+		return p;
+	}
+	
+	@Fact("Async Fact -- should fail")
 	asyncFactFail(done) {
 		setTimeout(() => {
 			assert.ok(false);

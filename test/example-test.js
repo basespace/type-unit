@@ -14,12 +14,17 @@ describe("TypeUnit example test suite", function () {
             output = output + data;
         });
         ls.on('close', function (code) {
-            assert.ok(output.indexOf("√ Addition -- should pass") > -1);
-            assert.ok(output.indexOf("1) Subtraction -- should fail") > -1);
-            assert.ok(output.indexOf("1 passing") > -1);
-            assert.ok(output.indexOf("1 failing") > -1);
+            assertContains("√ Async Fact -- should pass", output);
+            assertContains("1) Subtraction -- should fail", output);
+            assertContains("√ Async Fact -- should pass", output);
+            assertContains("√ Promise Fact -- should pass", output);
+            assertContains("2) Promise Fact -- should fail", output);
+            assertContains("3) Async Fact -- should fail", output);
             done();
         });
     });
 });
+function assertContains(needle, haystack) {
+    assert.ok(haystack.indexOf(needle) > -1, needle);
+}
 //# sourceMappingURL=example-test.js.map
