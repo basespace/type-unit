@@ -2,7 +2,9 @@
 
 **TypeUnit** enables you to write TypeScript tests in the style of <a href="https://xunit.github.io/">xUnit</a>.
 It's a simple library that sprinkles syntactic sugar atop your test framework of choice.
-TypeUnit works by way of plugins, which provide the functionality for actually running the test suite. An example is `type-unit-mocha`.
+TypeUnit works by way of plugins, which provide the functionality for actually running the test suite. An example is `type-unit-mocha`: https://github.com/aroberts-illumina/type-unit-mocha.
+
+See examples of how to use TypeUnit at: https://github.com/aroberts-illumina/type-unit-demos
 
 ### Changelog
 
