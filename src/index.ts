@@ -1,3 +1,4 @@
+/// <reference path="reflect-metadata/reflect-metadata.d.ts" />
 /// <reference path="../typings/node/node.d.ts" />
 
 
