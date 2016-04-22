@@ -1,5 +1,5 @@
 {
-  "version": "1.5.3",
+  "version": "1.8.7",
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
@@ -13,10 +13,8 @@
     "outDir": "dist",
     "experimentalDecorators": true
   },
-  "files" : [
+  "files": [
     "src/index.ts",
-    "src/decorators/fact.ts",
-    "src/decorators/theory.ts",
-    "src/decorators/suite.ts"
+    "src/typeunit.spec.ts"
   ]
 }

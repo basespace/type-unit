@@ -1,0 +1,5 @@
+/**
+ * used for tests
+ */
+
+exports = {};
