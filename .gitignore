@@ -30,6 +30,4 @@ src/**/*.js
 
 dist
 
-!dist/type-unit.d.ts
-
 typings

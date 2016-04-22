@@ -1,6 +1,5 @@
 {
   "name": "type-unit",
-  "version": "1.0.1",
   "description": "TypeScript testing framework. Inspired by XUnit.",
   "main": "dist/index.js",
   "scripts": {
@@ -38,5 +37,9 @@
     "mocha": "2.3.0",
     "typescript": "1.8.7",
     "typings": "0.8.1"
-  }
+  },
+  "files" : [
+    "type-unit.d.ts",
+    "dist/index.js"
+  ]
 }
